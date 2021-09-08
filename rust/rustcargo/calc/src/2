@@ -1,0 +1,50 @@
+use std::io;
+use std::{f32};
+
+fn main() {
+    
+	// Input strings
+	let mut inputone = String::new();
+	let mut inputtwo = String::new();
+
+
+	println!("First number: ");
+	match io::stdin().read_line(&mut inputone) {
+		
+		Ok(_) => {
+		// Converting first input to integer
+		let mut intone: i32 = inputone.trim().parse().ok().expect("Program only accepts numbers; Enter number");
+		println!("Second number: ");
+		
+
+		
+			match io::stdin().read_line(&mut inputtwo) {
+				Ok(_) => {
+				// Convert second number to i32 integer
+				let mut inttwo: i32 = inputtwo.trim().parse().ok().expect("Program only accepts numbers; Enter number");
+				// Convert second number to u32 integer for exponention	
+				let mut inttwou: i32 = inputtwo.trim().parse().ok().expect("Program only accepts numbers; Enter number");
+
+				println!("Sum: {}", intone + inttwo);
+				println!("Difference: {}", intone - inttwo);
+				println!("Product: {}", intone * inttwo);
+				println!("Quota: {}", intone + inttwo);
+				println!("Exponent: {}", intone.pow(inttwou));
+				},
+				Err(e) => println!("Error: {}", e)
+			}
+		},
+		Err(e) => println!("Error: {}", e)
+	}
+	
+	/* println!("Say something");
+
+	match io::stdin().read_line(&mut input) {
+		Ok(_) => {
+			println!("You said: {}", input);
+		},
+		Err(e) => { 
+		println!("Something went wrong {}", e); 
+		}
+	} */
+}
